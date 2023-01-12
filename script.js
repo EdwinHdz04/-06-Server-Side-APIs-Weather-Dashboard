@@ -1,5 +1,24 @@
-//http://api.openweathermap.org/geo/1.0/direct?q={city name},{state code},{country code}&limit={limit}&appid=
-var apiKey="46f48b1c2591f014d5caac1646b6d3ff"
+//Global Variables
+
+var resultCity=document.querySelector("#resultCity");
+var currentTemp=$("#currentTemp");
+var currentWind=$("#currentWind");
+var currentHumidity=$("#currentHumidity");
+var 
+apiKey="46f48b1c2591f014d5caac1646b6d3ff"
+
+
+//This function will be populating the results of the weather
+function populateResults(result) {
+    
+   console.log(result)
+   currentTemp.append("Temp: "+ result.temp + " &#176;F");
+   currentHumidity.append("Humidity: " + result.humidity + "%");
+   currentWind.append("Wind: " + result.wind + " MPH ");
+   resultCity.textContent = result.city;
+
+    
+}
 
 //The function will be getting the general weather data.
 function fetchlonlat(city){
@@ -21,14 +40,19 @@ function fetchlonlat(city){
             })
       
             .then(function(response){
-                var temp = response.list[0].main.temp
-                var wind = response.list[0].wind.speed
-                var humidity = response.list[0].main.humidity
+                const result ={ 
+                     temp : response.list[0].main.temp,
+                     wind : response.list[0].wind.speed,
+                     humidity : response.list[0].main.humidity,
+                     city : response.city.name
+                }
+                
+                 populateResults(result);
 
                 
             })
 
-      
+   
   })
 
 }
