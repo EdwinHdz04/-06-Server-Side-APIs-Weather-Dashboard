@@ -13,21 +13,29 @@ apiKey="46f48b1c2591f014d5caac1646b6d3ff"
 function populateResults(result) {
     
    console.log(result[0])
-   currentTemp.append("Temp: "+ result[0].temp + " &#176;F");
-   currentHumidity.append("Humidity: " + result[0].humidity + "%");
-   currentWind.append("Wind: " + result[0].wind + " MPH ");
-   resultCity.textContent = result[0].city;
+   currentTemp.text("Temp: "+ result[0].temp + " &#176;F");
+   currentHumidity.text("Humidity: " + result[0].humidity + "%");
+   currentWind.text("Wind: " + result[0].wind + " MPH ");
+   resultCity.textContent = result.city;
    
    for (var i = 1; i <= 5; i++) {
-    $("#day"+i+" > .date").append(result[i].date.toString().substring(0,16))
-    $("#day"+i+" > .Temp").append("Temp: "+ result[i].temp + " &#176;F");
-    $("#day"+i+" > .wind").append("wind: "+ result[i].wind + " MPH ");
-    $("#day"+i+" > .Humidity").append("Humidity: "+ result[i].humidity + " % ");
+    $("#day"+i+" > .date").text(result[i].date.toString().substring(0,16))
+    $("#day"+i+" > .Temp").text("Temp: "+ result[i].temp + " &#176;F");
+    $("#day"+i+" > .wind").text("wind: "+ result[i].wind + " MPH ");
+    $("#day"+i+" > .Humidity").text("Humidity: "+ result[i].humidity + " % ");
    } 
 
 
     
 }
+// called when the search form is submitted
+document.querySelector("#SearchBtn").addEventListener("click",function (event) {
+    event.preventDefault()
+    
+    fetchlonlat($("#SearchCity").val())
+
+
+})
 
 //The function will be getting the general weather data.
 function fetchlonlat(city){
