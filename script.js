@@ -13,14 +13,14 @@ apiKey="46f48b1c2591f014d5caac1646b6d3ff"
 function populateResults(result) {
     
    console.log(result[0])
-   currentTemp.text("Temp: "+ result[0].temp + " &#176;F");
+   currentTemp.text("Temp: "+ result[0].temp + "F");
    currentHumidity.text("Humidity: " + result[0].humidity + "%");
    currentWind.text("Wind: " + result[0].wind + " MPH ");
    resultCity.textContent = result.city;
    
    for (var i = 1; i <= 5; i++) {
     $("#day"+i+" > .date").text(result[i].date.toString().substring(0,16))
-    $("#day"+i+" > .Temp").text("Temp: "+ result[i].temp + " &#176;F");
+    $("#day"+i+" > .Temp").text("Temp: "+ result[i].temp + "F");
     $("#day"+i+" > .wind").text("wind: "+ result[i].wind + " MPH ");
     $("#day"+i+" > .Humidity").text("Humidity: "+ result[i].humidity + " % ");
    } 
