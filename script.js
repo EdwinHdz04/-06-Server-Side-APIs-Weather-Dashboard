@@ -31,11 +31,37 @@ function populateResults(result) {
 // called when the search form is submitted
 document.querySelector("#SearchBtn").addEventListener("click",function (event) {
     event.preventDefault()
-    
-    fetchlonlat($("#SearchCity").val())
+    var search =$("#SearchCity").val()
+    addtohistory(search)
+    fetchlonlat(search)
 
 
 })
+
+//event listener for the san francisco button
+document.querySelector("#sanfrancisco").addEventListener("click",function (event) {
+    event.preventDefault()
+    fetchlonlat("san francisco")
+
+})
+
+//this is the function to add the history
+function addtohistory(name){
+    
+    var test = $('<button/>',
+    {
+        text: name ,
+        click: function (event) { event.preventDefault()
+            fetchlonlat(name)}
+    });
+
+    var parent = $('<tr><td></td></tr>').children().append(test).end();
+    $("#searchhistory tr:last").before(parent);
+
+    
+}
+
+
 
 //The function will be getting the general weather data.
 function fetchlonlat(city){
