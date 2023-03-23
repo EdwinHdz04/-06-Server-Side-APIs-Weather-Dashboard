@@ -8,27 +8,40 @@
     integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
     crossorigin="anonymous"
      ></script>
-     <link rel="stylesheet" href="style.css"/>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 
     <title>Weather Dashboard</title>
 </head>
 
 <body>
-    <div id="mainheader"><h1>Weather Dashboard</h1></div>
+    <section class="hero is-info">
+        <div class="hero-body has text-centered"> 
+    <p class="title ">Weather Dashboard</p>
+</div>
+</section>
+
+<section class="m-6">
+    <div class="columns">
+        <div class="column is-one-third">
     <div id="searchbox">
         <h2>Search for a City</h2>
         <form> 
             <input id="SearchCity" type="text">
             <button id="SearchBtn">Search</button>
         </form>   
-        <div id="diverline"></div>
+        <div class="columns mt-5">
+        <div class="column">
         <table id="searchhistory">
             <tr><td><button id= "sanfrancisco" class="history" >San Francisco</button></td></tr>
            
-         
-
         </table>
+        </div>
+        </div>
+        </div>
+        </div>
     </div>
+    <div class="column">
+        <div class="column is-text-left"></div>
     <div id="results">
         <div id="currentconditions">
             <h2 id="resultCity"></h2>
@@ -36,8 +49,14 @@
             <p id="currentWind"></p>
             <p id="currentHumidity"></p>
         </div>
+        </div>
+    </div>
+     <div class="columns">
+        <div class="column is-fullwith has-text-left">
         <div id="fiveDayForecast">
             <h3>5-Day Forecast:</h3>
+            <div class="columns">
+                <div class="column is-one-fifth has-text-centered">
             <div id="day1">
             <h4 class="date"></h4>
             <div class="icon"></div>
@@ -45,6 +64,10 @@
             <div class="wind"></div>
             <div class="Humidity"></div>
             </div>
+            </div>
+            </div>
+            <div class="columns">
+                <div class="column is-one-fifth has-text-centered">
             <div id="day2">
             <h4 class="date"></h4>
             <div class="icon"></div>
@@ -52,6 +75,10 @@
             <div class="wind"></div>
             <div class="Humidity"></div>
             </div>
+            </div>
+            </div>
+            <div class="columns">
+                <div class="column is-one-fifth has-text-centered">
             <div id="day3">
             <h4 class="date"></h4>
             <div class="icon"></div>
@@ -59,6 +86,10 @@
             <div class="wind"></div>
             <div class="Humidity"></div>
             </div>
+            </div>
+            </div>
+            <div class="columns">
+                <div class="column is-one-fifth has-text-centered">
             <div id="day4">
             <h4 class="date"></h4>
             <div class="icon"></div>
@@ -66,6 +97,10 @@
             <div class="wind"></div>
             <div class="Humidity"></div>
             </div>
+            </div>
+            </div>
+            <div class="columns">
+                <div class="column is-one-fifth has-text-centered">
             <div id="day5">
             <h4 class="date"></h4>
             <div class="sun"></div>
@@ -73,10 +108,12 @@
             <div class="wind"></div>
             <div class="Humidity"></div>
             </div>
+            </div>
+            </div>
         </div>
-
     </div>
-
-    <script src="/script.js"></script> 
+    </div>
+</section>
+    <script src="./script.js"></script> 
 </body>
 </html>
